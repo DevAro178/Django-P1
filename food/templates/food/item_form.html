@@ -1,0 +1,6 @@
+{% extends "food/base.html" %} {% block body %}
+<form action="{% url "food:create_item" %}" method="POST">
+  {% csrf_token %} {{form}}
+  <button type="submit">Add Item</button>
+</form>
+{% endblock body %}

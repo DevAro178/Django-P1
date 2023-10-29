@@ -1,0 +1,7 @@
+{% extends "food/base.html" %} {% block body %}
+<form action='{% url "food:delete_item" item.id %}' method="POST">
+    {% csrf_token %} {{form}}
+    <h2>Are you sure to delete {{item.item_name}}</h2>
+    <button type="submit" class="btn btn-danger">Delete Item</button>
+</form>
+{% endblock body %}
