@@ -13,7 +13,7 @@ def register(request):
                 request, f"Welcome {username}, your account has been created."
             )
             form.save()
-            return redirect("food:index")
+            return redirect("login")
     else:
         form = registerForm()
     context = {"form": form}
