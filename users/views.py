@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import registerForm
 
@@ -18,3 +19,9 @@ def register(request):
         form = registerForm()
     context = {"form": form}
     return render(request, "users/register.html", context)
+
+
+@login_required
+def profileview(request):
+    context = {}
+    return render(request, "users/profile.html", context)
