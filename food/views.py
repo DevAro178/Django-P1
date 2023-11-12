@@ -3,6 +3,7 @@ from django.test import TestCase
 from django.http import HttpResponse
 from .models import Item
 from .forms import ItemForm
+from django.views.generic.list import ListView
 
 
 # Create your tests here.
@@ -10,6 +11,12 @@ def index(request):
     item_list = Item.objects.all()
     context = {"item_list": item_list}
     return render(request, "food/index.html", context)
+
+
+class IndexClassView(ListView):
+    model = Item
+    template_name = "food/index.html"
+    context_object_name = "item_list"
 
 
 def detail(request, item_id):
